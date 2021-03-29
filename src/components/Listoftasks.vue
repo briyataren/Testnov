@@ -52,8 +52,8 @@ export default {
   },
   mounted() {
     /* this.showTasks() */
-    this.$root.$on('Listoftasks', () => {
-      this.showTasks();
+    this.$root.$on('Listoftasks', (response) => {
+      this.tasks.push(response.data);
     });
     this.showTasks();
   },
@@ -69,17 +69,6 @@ export default {
 
   },
   methods: {
-    addTask() {
-      this.$axios.post(process.env.VUE_APP_ROOT_API, {
-        id: Date.now(),
-        title: this.newTaskTitle,
-        done: false,
-        changing: false,
-      })
-        .then(() => {
-          this.showTasks();
-        });
-    },
 
     deleteTask(id) {
       this.$axios.delete(process.env.VUE_APP_ROOT_DEL + id).then(() => {

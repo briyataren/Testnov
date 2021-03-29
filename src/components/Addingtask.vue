@@ -27,13 +27,9 @@ export default {
         done: false,
         changing: false,
       })
-        .then(() => {
-          this.eshowTasks();
-        });
+        .then((response) => { this.$root.$emit('Listoftasks', response); });
     },
-    eshowTasks() {
-      this.$root.$emit('Listoftasks');
-    },
+
   },
 };
 

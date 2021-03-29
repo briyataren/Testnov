@@ -15,7 +15,7 @@ export default {
 
   name: 'Mainlayout',
   data() {
-    return {};
+    return { tasks: [] };
   },
 
   components: {
